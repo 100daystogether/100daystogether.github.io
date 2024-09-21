@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+    <!-- <body onclick="playSong()"> -->
+        <audio id="song" preload="auto" autoplay>
+            <source src="media/song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div id="clicker">
+            <div>I have a little gift for you.</div><br/>
+            <div><button onclick="slideCard(); playSong();">Click on me</button></div>
+        </div>
+        <div id="card" class="card-beginning">
+            <div id="pg-3">
+                <img id="letter-svg" src="media/path.svg">
+            </div>
+            <div id="pg-2">
+                <div class="flip-content">
+                    <img id="photos" src="media/photos.svg">
+                </div>
+            </div>
+            <div id="pg-1">
+                <img id="title-svg" src="media/title.svg">
+            </div>
+        </div>
+        <script>
+            var song = document.getElementById("song");
+            function playSong(){
+                console.log("playing song...")
+                song.play();
+            }
+        </script>
+    </body>
+</html>

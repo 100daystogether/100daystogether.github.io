@@ -1,0 +1,86 @@
+:root {
+    --card-width: 450px;
+    --card-height: 575px;
+}
+
+html, body{
+    perspective: 1200px;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#song{
+    display: none;
+}
+
+#clicker{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center; /* horizontal */
+    align-items: center; /* vertical */
+}
+
+.card-beginning{
+    position: fixed;
+    transform-style: preserve-3d;
+    height: var(--card-height);
+    left: calc(50% - (var(--card-width) * .5));
+    margin-top: calc((100vh - var(--card-height)) / 2);
+    transform: translateY(-1000px); /* translated from original position */
+}
+
+.card{
+    transition: transform ease-out 5s; /* transitions back to original position*/
+}
+
+[id^="pg"]{
+    position: absolute;
+    width: var(--card-width);
+    height: 100%;
+    transform-origin: left center;
+    transition: transform 1.75s ease-in-out, box-shadow .35s ease-in-out;
+    background-color: white;
+    background-image: url("media/texture.jpg");
+    background-size: var(--card-width);
+}
+
+.card:hover{
+    transform: translateX(calc(var(--card-width) * .5));
+    transition: transform 1.5s ease-in-out;
+}
+
+.card{
+    transform: translateX(-calc(var(--card-width) * .5));
+    transition: transform 1.5s ease-in-out;
+}
+
+.card:hover #pg-1 {
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+}
+
+.card:hover #pg-2 {
+    transform: rotateY(-179.9deg);
+}
+
+#pg-2, #pg-3 {
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.flip-content{
+    transform: scaleX(-1);
+}
+
+#letter-svg{
+    margin-top: 56.35px; 
+    margin-left: 30px;
+}
+
+#title-svg{
+    margin-left: 75px;
+    margin-top: 175px;
+}
