@@ -3,30 +3,105 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+            header {
+                text-align: center;
+            }
+
+            #letter {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                background-color: white;
+            }
+
+            #letter-content {
+                width: 50%;
+                margin: auto;
+            }
+
+            #letter div{
+                margin-top: 1em;
+            }
+
+            .hide{
+                transition: opacity 1s;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            .show{
+                transition: opacity 1s;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            .hi-melody-regular {
+                font-family: "Hi Melody", serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 50px;
+            }
+
+            .noto-sans-regular{
+                font-family: "Noto Sans", serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                font-variation-settings:
+                    "wdth" 100;
+            }
+
+        </style>
     </head>
-    <body>
+    <body onclick="playSong();">
     <!-- <body onclick="playSong()"> -->
         <audio id="song" preload="auto" autoplay>
-            <source src="media/song.mp3" type="audio/mpeg">
+            <source src="media/yujin_bday.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
-        <div id="clicker">
-            <div>I have a little gift for you.</div><br/>
-            <div><button onclick="slideCard(); playSong();">Click on me</button></div>
-        </div>
-        <div id="card" class="card-beginning">
+        <div id="card" class="card card-beginning">
             <div id="pg-3">
-                <img id="letter-svg" src="media/path.svg">
+                <img id="letter-svg" src="media/rect1.svg">
+                <div id="card-content">
+                    <span class="hi-melody-regular">생일 축하해!</span> 
+                    <div class="noto-sans-regular" onclick="showLetter()">Click here to read my full letter for you! <br> (Make sure to turn on your sound too!)</div>
+                </div>
             </div>
             <div id="pg-2">
                 <div class="flip-content">
-                    <img id="photos" src="media/photos.svg">
+                    <img id="photos" src="media/rect2.svg">
                 </div>
             </div>
             <div id="pg-1">
-                <img id="title-svg" src="media/title.svg">
+                <img id="title-svg" src="media/rect1.svg">
+                <div id="card-content">
+                    <span class="hi-melody-regular">사랑하는 우리 유진~</span>
+                </div>
             </div>
         </div>
+        <div id="letter" class="hide">
+            <header class="hi-melody-regular">생일 축하해!</header>
+            <div id="letter-content" class="noto-sans-regular">
+                <div onclick="hideLetter();"><i>&lt;Click here to return back&gt;</i></div>
+                <div>
+                    Yujin my beloved! My beautiful girlfriend lives another year~
+                </div>
+                <div>
+                    I'm so happy that you can experience another year of your life, and that the world can experience you as well! You have your exams going on, <s>I hope</s> I know you will do well because you work so hard and you are so smart! Thank you for studying so hard all semester so you can have fun with me. I love you so much and I can't wait to see you soon, but don't burn out before I get to spend time with you! Get enough sleep!
+                </div>
+                <div>I wrote you a letter when I gifted you the BOOX. Here's what I remember:</div>
+                <blockquote>
+                    Yujin, one of my favorite things about you is how beautiful your thoughts are. I love listening to you when you explain something you read or watched. My most cherished moments from Germany is when we talked about the movies that we watched together, especially for our first movie. I love getting a glimpse into your inner world and seeing the depth of your mind and emotions. I want to give you this BOOX so you and your world can continue to flourish and you can continue sharing it with me. I love you!
+                </blockquote>
+                <div><i>P.S. I originally wanted to send you a letter by mail, but it cost $100! Wat... And then it got too cold to drive so far :( Maybe this is better though!</i></div>
+                <div>From, Ashley</div>    
+            </div>
+        </div>  
         <script>
             var song = document.getElementById("song");
             function playSong(){

@@ -1,5 +1,9 @@
-function slideCard(){
-    document.getElementById("card").classList.add("card");
+function showLetter(){
+    document.getElementById("letter").classList.add("show");
+}
+
+function hideLetter(){
+    document.getElementById("letter").classList.remove("show");
 }
 
 function playSong(){
