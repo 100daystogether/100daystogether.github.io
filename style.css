@@ -1,6 +1,6 @@
 :root {
-    --card-width: 450px;
-    --card-height: 575px;
+    --card-width: 500px;
+    --card-height: 439px;
 }
 
 html, body{
@@ -42,10 +42,25 @@ html, body{
     width: var(--card-width);
     height: 100%;
     transform-origin: left center;
-    transition: transform 1.75s ease-in-out, box-shadow .35s ease-in-out;
-    background-color: white;
-    background-image: url("media/texture.jpg");
+    transition: transform 1.75s ease-in-out;
+    /* background-color: white; */
+    /* background-image: url("media/texture.jpg"); */
     background-size: var(--card-width);
+    border: none;
+}
+
+[id^="pg"] img{
+    height: 100%;
+    width: 100%;
+}
+
+#card-content{
+    position: inherit;
+    width: 100%;
+    left: 0;
+    top: 30%;
+    text-align: center;
+
 }
 
 .card:hover{
@@ -64,23 +79,9 @@ html, body{
 }
 
 .card:hover #pg-2 {
-    transform: rotateY(-179.9deg);
-}
-
-#pg-2, #pg-3 {
-    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    transform: rotateY(-179.9deg) translateX(-1px);
 }
 
 .flip-content{
     transform: scaleX(-1);
-}
-
-#letter-svg{
-    margin-top: 56.35px; 
-    margin-left: 30px;
-}
-
-#title-svg{
-    margin-left: 75px;
-    margin-top: 175px;
 }
